@@ -22,17 +22,6 @@ function insertShiftArray(arr, value){
   return arr;
 }
 
-let arr1 = [2, 4, 6, -8];
-let arr2 = [24, 8, 15, 23, 42, 16];
-
-console.log('array1 before :', arr1);
-insertShiftArray(arr1, 5);
-console.log('array1 after inserting 5 at the middle index :', arr1);
-
-console.log('array2 before :', arr2);
-let newArr2 = insertShiftArray(arr2, 16);
-console.log('array2 after inserting  at the middle index :', arr2);
-
 ```
 
 ## Approach & Efficiency
