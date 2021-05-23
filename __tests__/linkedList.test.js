@@ -130,4 +130,160 @@ describe('Linked List', () => {
       '{ 33 } -> { -5 } -> { 15 } -> { 10 } -> { 5 } -> NULL'
     );
   });
+
+  it('should add a node to the end of the linked list', () => {
+    // arrange
+    let li = new LinkedList();
+    let value = 30;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    //act
+    li.append(value);
+    //assert
+    expect(li.tail.data).toBe(value);
+    expect(li.tail.next).toBeNull();
+    expect(li.length).toBe(4);
+  });
+
+  it('should add multiple nodes to the end of a linked list', () => {
+    // arrange
+    let li = new LinkedList();
+    let value1 = 31;
+    let value2 = 32;
+    let value3 = 33;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    //act
+    li.append(value1);
+    li.append(value2);
+    li.append(value3);
+    //assert
+    expect(li.head.next.next.next.data).toBe(value1);
+    expect(li.head.next.next.next.next.data).toBe(value2);
+    expect(li.head.next.next.next.next.next.data).toBe(value3);
+    expect(li.head.next.next.next.next.next).toEqual(li.tail);
+    expect(li.tail.data).toBe(value3);
+    expect(li.tail.next).toBeNull();
+    expect(li.length).toBe(6);
+  });
+
+  it('should insert a node before a node located in the middle of a linked list', () => {
+    // arrange
+    let li = new LinkedList();
+    let value = 15;
+    let newValue = 30;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    //act
+    li.insertBefore(value, newValue);
+    //assert
+    expect(li.head.data).toBe(25);
+    expect(li.tail.data).toBe(5);
+    expect(li.head.next.next.data).toBe(newValue);
+    expect(li.length).toBe(6);
+  });
+
+  it('should insert a node before the first node of a linked list', () => {
+    // arrange
+    let li = new LinkedList();
+    let value = 25;
+    let newValue = 30;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    //act
+    li.insertBefore(value, newValue);
+    //assert
+    expect(li.head.data).toBe(newValue);
+    expect(li.head.next.data).toBe(25);
+    expect(li.length).toBe(6);
+  });
+
+  it('should raise an ecxeption if the value to insert before not found', () => {
+    // arrange
+    let li = new LinkedList();
+    let value = 12;
+    let newValue = 30;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    //act
+    const func = () => {
+      li.insertBefore(value, newValue);
+    }
+    
+    //assert
+    expect(func).toThrow('Node not found')
+    expect(li.tail.data).toBe(5);
+    expect(li.head.data).toBe(25);
+    expect(li.length).toBe(5);
+  });
+
+  it('should insert after a node in the middle of the linked list', () => {
+    // arrange
+    let li = new LinkedList();
+    let value = 5;
+    let newValue = 30;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    //act
+    li.insertAfter(value, newValue);
+    //assert
+    expect(li.head.data).toBe(25);
+    expect(li.tail.data).toBe(newValue);
+    expect(li.head.next.next.next.next.next.data).toBe(newValue);
+    expect(li.length).toBe(6);
+  });
+
+  it('should insert a node after the last node of the linked list', () => {
+    // arrange
+    let li = new LinkedList();
+    let value = 5;
+    let newValue = 30;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    //act
+    li.insertAfter(value, newValue);
+    //assert
+    expect(li.tail.data).toBe(newValue);
+    expect(li.head.next.next.next.next.next.data).toBe(newValue);
+    expect(li.length).toBe(6);
+  });
+
+  it('should raise an ecxeption if the value to insert after not found', () => {
+    // arrange
+    let li = new LinkedList();
+    let value = 12;
+    let newValue = 30;
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    //act
+    const func = () => {
+      li.insertAfter(value, newValue);
+    }
+    
+    //assert
+    expect(func).toThrow('Node not found')
+    expect(li.tail.data).toBe(5);
+    expect(li.head.data).toBe(25);
+    expect(li.length).toBe(5);
+  });
 });

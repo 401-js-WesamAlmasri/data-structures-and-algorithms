@@ -52,6 +52,70 @@ class LinkedList {
     }
     return outputString;
   }
+
+  // adds a new node with the given value to the end of the list
+  append(value) {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
+  }
+
+  // add a new node with the given newValue immediately before the first value node
+  insertBefore(value, newValue) {
+    let newNode = new Node(newValue);
+    let current = this.head;
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      this.length++;
+      return;
+    } else if (this.head.data === value) {
+      this.insert(newValue);
+      return;
+    } else {
+      while (current.next !== null) {
+        if (current.next.data === value) {
+          newNode.next = current.next;
+          current.next = newNode;
+          this.length++;
+          return;
+        }
+        current = current.next;
+      }
+    }
+    throw new Error('Node not found');
+  }
+
+  // add a new node with the given newValue immediately after the first value node
+  insertAfter(value, newValue) {
+    let newNode = new Node(newValue);
+    let current = this.head;
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      this.length++;
+    } else if (this.tail.data === value) {
+      this.append(newValue);
+      return;
+    } else {
+      while (current !== null) {
+        if (current.data === value) {
+          newNode.next = current.next;
+          current.next = newNode;
+          this.length++;
+          return;
+        }
+        current = current.next;
+      }
+    }
+    throw new Error('Node not found');
+  }
 }
 
 module.exports = {
