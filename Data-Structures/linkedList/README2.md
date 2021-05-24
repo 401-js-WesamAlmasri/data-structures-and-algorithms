@@ -8,7 +8,7 @@ Write the following methods for the Linked List class:
 
 ## Whiteboard Process
 
-[Whiteboard](ll-insertions.png)
+![Whiteboard](ll-insertions.png)
 
 ## Approach & Efficiency
 
@@ -19,7 +19,6 @@ For **insertBefore** method after creating new node I used a loop to find the no
 For **insertAfter** method after creating new node I used a loop to find the node which is has the value we are looking for then make it points to the new nodeand the new node points to the next node of node that has the value we are looked for.
 
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
 
 ```javascript
 // create an empty linked list

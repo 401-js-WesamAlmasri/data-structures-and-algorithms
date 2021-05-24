@@ -116,6 +116,34 @@ class LinkedList {
     }
     throw new Error('Node not found');
   }
+
+  // Return the node’s value that is k from the end of the linked list
+  kthFromEnd(k) {
+    if(k < 0 || k > this.length - 1){
+      throw new Error('Invalid input');
+    }
+
+    if(k == this.length - 1){
+      return this.head.data;
+    }
+    
+    if(k === 0) {
+      return this.tail.data;
+    }
+    
+    let distanceFromNode = this.length - 1 - k;
+    let curr = this.head;
+
+    while(distanceFromNode !== 0 && curr !== null){
+      curr = curr.next;
+      distanceFromNode -= 1; 
+    }
+    if(curr){
+      return curr.data;
+    }
+    throw new Error('Invalid input')
+  }
+  
 }
 
 module.exports = {

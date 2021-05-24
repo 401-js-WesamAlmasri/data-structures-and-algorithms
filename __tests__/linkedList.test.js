@@ -281,9 +281,122 @@ describe('Linked List', () => {
     }
     
     //assert
-    expect(func).toThrow('Node not found')
+    expect(func).toThrow('Node not found');
     expect(li.tail.data).toBe(5);
     expect(li.head.data).toBe(25);
     expect(li.length).toBe(5);
   });
+
+  it('should return the node value kt the end of the linked list (k in the middle)', () => {
+    // arrange
+    let li = new LinkedList();
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    li.insert(30);
+    li.insert(35);
+    li.insert(40);
+    li.insert(45);
+    li.insert(55);
+    //act
+    let retrunedValue = li.kthFromEnd(1);
+    let retrunedValue1 = li.kthFromEnd(3);
+    let retrunedValue2 = li.kthFromEnd(5);
+    let retrunedValue3 = li.kthFromEnd(8);
+    //assert
+    expect(retrunedValue).toBe(10);
+    expect(retrunedValue1).toBe(20);
+    expect(retrunedValue2).toBe(30);
+    expect(retrunedValue3).toBe(45);
+  });
+
+  it('should throw an exception where (k greate than the length of list)', () => {
+    // arrange
+    let li = new LinkedList();
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    li.insert(30);
+    li.insert(35);
+    li.insert(40);
+    li.insert(45);
+    li.insert(55);
+    //act
+    const func = () => {
+      let retrunedValue = li.kthFromEnd(20);
+    }
+    //assert
+    expect(func).toThrow('Invalid input');
+
+  });
+
+  it('should throw an exception where (k not a posittive integer)', () => {
+    // arrange
+    let li = new LinkedList();
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    li.insert(30);
+    li.insert(35);
+    li.insert(40);
+    li.insert(45);
+    li.insert(55);
+    //act
+    const func = () => {
+      let retrunedValue = li.kthFromEnd(-2);
+    }
+    //assert
+    expect(func).toThrow('Invalid input');
+
+  });
+
+  it('should return the node value kt the end of the linked list (k equal the length of the list)', () => {
+    // arrange
+    let li = new LinkedList();
+    li.insert(5);
+    li.insert(10);
+    li.insert(15);
+    li.insert(20);
+    li.insert(25);
+    li.insert(30);
+    li.insert(35);
+    li.insert(40);
+    li.insert(45);
+    li.insert(55);
+    //act
+    let retrunedValue = li.kthFromEnd(9);
+    //assert
+    expect(retrunedValue).toBe(55);
+  });
+
+  it('should return the node value one far from the end of the linked list where (list size equal one)', () => {
+    // arrange
+    let li = new LinkedList();
+    li.insert(5);
+    //act
+    let retrunedValue = li.kthFromEnd(0);
+    //assert
+    expect(retrunedValue).toBe(5);
+  });
+
+  it('should throw an exception where (list size equal one and k greater than zero)', () => {
+    // arrange
+    let li = new LinkedList();
+    li.insert(5);
+    //act
+    const func = () => {
+      let retrunedValue = li.kthFromEnd(1);
+      console.log(retrunedValue)
+    }
+    //assert
+    expect(func).toThrow('Invalid input');
+
+  });
+  
 });
