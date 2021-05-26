@@ -12,3 +12,4 @@
 | 4   | [Linked List 1](./Data-Structures/linkedList/README.md)        |
 | 5   | [Linked Insertions](./Data-Structures/linkedList/README2.md)   |
 | 6   | [Linked Kth From End](./Data-Structures/linkedList/README3.md) |
+| 7   | [Zip Linked Lists](./llZip/README.md)          |
