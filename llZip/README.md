@@ -9,11 +9,8 @@ Writing a function called **zipLists** which takes two linked lists as arguments
 ## Approach & Efficiency
 
 - The approach was taken is by make two pointers to the first and second list for traversing
-- starting from the head of the first node if not null else from the head from the second list
-- Then loop until we reach the end of any lists
-- On each iteration we point a new node from the second first then from the first list
-- After reaching the end of one of list we add the rest of nodes of the remaining list in sequence
-
+- Then loop until we reach the end of both lists
+- On each iteration we change the next of each nodes to make the ordere as expected
 - Time complexity < ------ O(N), where N is the size of longest list
 - Space complexity < ------- O(1)
 
