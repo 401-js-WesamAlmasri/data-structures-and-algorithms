@@ -14,3 +14,4 @@
 | 6   | [Linked Kth From End](./Data-Structures/linkedList/README3.md)   |
 | 7   | [Zip Linked Lists](./llZip/README.md)                            |
 | 8   | [Stacks and Queues](./Data-Structures/stacksAndQueues/README.md) |
+| 9   | [Queue With Stacks](./queueWithStacks/README.md)                 |
