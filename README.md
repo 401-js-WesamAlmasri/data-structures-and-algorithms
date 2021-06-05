@@ -17,3 +17,4 @@
 | 9   | [Queue With Stacks](./queueWithStacks/README.md)                 |
 | 10  | [FIF OAnimal Shelter](./fifoAnimalShelter/README.md)             |
 | 11  | [Multi Bracket Validation](./multiBracketValidation/README.md)   |
+| 12  | [Trees](./tree/README.md)                                        |
