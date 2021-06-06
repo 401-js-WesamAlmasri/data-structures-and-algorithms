@@ -104,6 +104,57 @@ describe('Binary Tree', () => {
       expect(postOrderResult).toEqual(expectedResult);
     });
   });
+  describe('find max value method', () => {
+
+    it('should find the max value in the tree with just root node', () => {
+      // Arrange
+      let one = new Node(1);
+      let tree = new BinaryTree(one);
+      // Act
+      let maxNumber = tree.findMaximumValue();
+      // Assert
+      expect(maxNumber).toBe(1)
+    })
+
+    it('should find the max value in empty tree ', () => {
+      // Arrange
+      // create a binary tree
+      let tree = new BinaryTree();
+      // Act
+      let maxNumber = tree.findMaximumValue();
+      // Assert
+      expect(maxNumber).toBeNull()
+    })
+
+    it('should find the max value in the tree with many nodes', () => {
+      // Arrange
+      // Create nodes
+      let one = new Node(1);
+      let two = new Node(2);
+      let three = new Node(3);
+      let four = new Node(4);
+      let five = new Node(5);
+      let six = new Node(6);
+      let seven = new Node(7);
+      let eight = new Node(8);
+      let nine = new Node(9);
+      // Connect the nodes
+      one.left = two;
+      one.right = three;
+      two.left = six;
+      six.right = seven;
+      seven.left = eight;
+      seven.right = nine;
+      three.left = four;
+      three.right = five;
+      // create a binary tree
+      let tree = new BinaryTree(one);
+      // Act
+      let maxNumber = tree.findMaximumValue();
+      // Assert
+      expect(maxNumber).toBe(9)
+    })
+  })
 });
 
 // Binary Search Tree  class
