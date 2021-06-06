@@ -51,6 +51,36 @@ class BinaryTree {
     traverse(this.root);
     return result;
   }
+  // Find the maximum node value in the tree
+  findMaximumValue(){
+    if(!this.root){
+      return null;
+    }
+    const findMax = (node) => {
+      
+      if(node === null){
+        return Number.NEGATIVE_INFINITY;
+      }
+      let maxNode = node;
+      // find the max in the left branch
+      let maxLeft = findMax(node.left);
+      // find the max in the right branch
+      let maxRight = findMax(node.right);
+      // check for the max value between all branches
+      if(maxLeft.value > maxNode.value){
+        maxNode = maxLeft
+      }
+      if(maxRight.value > maxNode.value){
+        maxNode = maxRight
+      }
+
+      return maxNode
+    }
+
+    // find the max value in the tree starting from the root
+    let maxNode = findMax(this.root);
+    return maxNode.value;
+  }
 }
 
 // Binary Search Tree class

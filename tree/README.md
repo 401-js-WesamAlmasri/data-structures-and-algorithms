@@ -61,6 +61,18 @@ The approch that was taken for contains method is by loop and for add method is 
 6. Else do the same but with the right node
 7. after  that return the node  
 
+**Contains Method**:
+
+    **Time Complexity**  -----> O(N)
+
+    **Space Complexity** -----> O(1)
+
+**Add Method**:
+
+    **Time Complexity**  -----> O(N)
+
+    **Space Complexity** -----> O(N)
+
 ## API
 
 **preOrder**: Return an array with depth first traversals using the pre order concept
