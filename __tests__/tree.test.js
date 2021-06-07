@@ -52,7 +52,7 @@ describe('Binary Tree', () => {
     expect(tree.root).toBe(value);
   });
 
-  describe('Traverse a tree', () => {
+  describe('Depth First Traverse a tree', () => {
     // Create nodes
     let one = new Node(1);
     let two = new Node(2);
@@ -104,8 +104,58 @@ describe('Binary Tree', () => {
       expect(postOrderResult).toEqual(expectedResult);
     });
   });
-  describe('find max value method', () => {
+  describe('Breadth First Traverse (bfs)', () => {
+    // Create nodes
+    let one = new Node(1);
+    let two = new Node(2);
+    let three = new Node(3);
+    let four = new Node(4);
+    let five = new Node(5);
+    let six = new Node(6);
+    let seven = new Node(7);
+    let eight = new Node(8);
+    let nine = new Node(9);
+    // Connect the nodes
+    one.left = two;
+    one.right = three;
+    two.left = six;
+    six.right = seven;
+    seven.left = eight;
+    seven.right = nine;
+    three.left = four;
+    three.right = five;
+    // create a binary tree
+    let tree = new BinaryTree(one);
+    it('shoule traverse tree using breadth first with multiple nodes', () => {
+      // arrange
+      let expectedResult = [1, 2, 3, 6, 4, 5, 7, 8, 9];
+      // act
+      let inOrderResult = tree.bfs();
+      // assert
+      expect(inOrderResult).toEqual(expectedResult);
+    });
+    it('shoule traverse tree using breadth first with single node (root)', () => {
+      // arrange
+      let one = new Node(1);
+      let tree1 = new BinaryTree(one);
+      let expectedResult = [1];
+      // act
+      let inOrderResult = tree1.bfs();
+      // assert
+      expect(inOrderResult).toEqual(expectedResult);
+    });
 
+    it('shoule return an empty array on traverse empty tree', () => {
+      // arrange
+      let tree2 = new BinaryTree();
+      let expectedResult = [];
+      // act
+      let inOrderResult = tree2.bfs();
+      // assert
+      expect(inOrderResult).toEqual(expectedResult);
+    });
+  });
+  describe('find max value method', () => {
     it('should find the max value in the tree with just root node', () => {
       // Arrange
       let one = new Node(1);
@@ -113,8 +163,8 @@ describe('Binary Tree', () => {
       // Act
       let maxNumber = tree.findMaximumValue();
       // Assert
-      expect(maxNumber).toBe(1)
-    })
+      expect(maxNumber).toBe(1);
+    });
 
     it('should find the max value in empty tree ', () => {
       // Arrange
@@ -123,8 +173,8 @@ describe('Binary Tree', () => {
       // Act
       let maxNumber = tree.findMaximumValue();
       // Assert
-      expect(maxNumber).toBeNull()
-    })
+      expect(maxNumber).toBeNull();
+    });
 
     it('should find the max value in the tree with many nodes', () => {
       // Arrange
@@ -152,9 +202,9 @@ describe('Binary Tree', () => {
       // Act
       let maxNumber = tree.findMaximumValue();
       // Assert
-      expect(maxNumber).toBe(9)
-    })
-  })
+      expect(maxNumber).toBe(9);
+    });
+  });
 });
 
 // Binary Search Tree  class
@@ -220,7 +270,7 @@ describe('Binary Search Tree', () => {
     tree.add(11);
     tree.add(15);
     // Act
-    let result = tree.contains(7)
+    let result = tree.contains(7);
     // Assert
     expect(result).toBe(true);
   });
@@ -236,7 +286,7 @@ describe('Binary Search Tree', () => {
     tree.add(11);
     tree.add(15);
     // Act
-    let result = tree.contains(99)
+    let result = tree.contains(99);
     // Assert
     expect(result).toBe(false);
   });

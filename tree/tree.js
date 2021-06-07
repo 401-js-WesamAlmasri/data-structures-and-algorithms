@@ -81,6 +81,26 @@ class BinaryTree {
     let maxNode = findMax(this.root);
     return maxNode.value;
   }
+
+  // Breadth First Traverse, retrun an array of the result
+  bfs(){
+    if(!this.root) return [];
+    let result = [];
+    let queue = new Queue();
+    // enqueue the root node to the queue
+    queue.enqueue(this.root);
+    while(!queue.isEmpty()){
+      // get the front node in the queue
+      let front = queue.dequeue();
+      // add the front value to the result array
+      result.push(front.value);
+      // enqueue the left and right node to the queu if exists
+      if(front.left) queue.enqueue(front.left);
+      if(front.right) queue.enqueue(front.right);
+    }
+
+    return result;
+  }
 }
 
 // Binary Search Tree class
