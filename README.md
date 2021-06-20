@@ -21,3 +21,4 @@
 | 13  | [Find Maximum Binary Tree](./tree/README2.md)                    |
 | 14  | [Breadth First Traversal](./tree/README3.md)                     |
 | 15  | [Fizz Buzz Tree](./fizzBuzzTree/README.md)                       |
+| 16  | [Insertion Sort](./insertionSort/README.md)                      |
