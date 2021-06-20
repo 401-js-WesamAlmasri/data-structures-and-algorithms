@@ -32,3 +32,5 @@ InsertionSort(arr);
 // The array now is sorted
 console.log(arr); // the output should be [-1, 1, 2, 7, 15, 25, 39]
 ```
+
+[blog article](blog.md)
