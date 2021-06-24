@@ -23,4 +23,5 @@
 | 15  | [Fizz Buzz Tree](./fizzBuzzTree/README.md)                       |
 | 16  | [Insertion Sort](./insertionSort/README.md)                      |
 | 17  | [Merge Sort](./mergeSort/README.md)                              |
-| 17  | [Quick Sort](./quickSort/README.md)                              |
+| 18  | [Quick Sort](./quickSort/README.md)                              |
+| 19  | [Hash Table](./Data-Structures/hashTable/README.md)              |
