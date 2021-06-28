@@ -9,6 +9,7 @@ class Hashtable {
   }
 
   hash(key) {
+    if(typeof(key) !== 'string') key = String(key);
     let hash =
       (key.split('').reduce((acc, char) => {
         return acc + char.charCodeAt(0);
@@ -42,7 +43,7 @@ class Hashtable {
   get(key) {
     const index = this.hash(key);
 
-    if (!this.table[index]) null;
+    if (!this.table[index]) return null;
 
     // iterate through linked list to find a match
     let bucketItem = this.table[index].head;
@@ -62,9 +63,10 @@ class Hashtable {
     if (!this.table[index]) return false;
 
     // iterate through linked list to find a match
-    const bucketItem = this.table[index].head;
+    let bucketItem = this.table[index].head;
     while (bucketItem) {
-      if (Object.keys(bucketItem.data)[0] === key) return true;
+      if (Object.keys(bucketItem.data)[0] === String(key)) return true;
+      bucketItem = bucketItem.next;
     }
     return false;
   }
