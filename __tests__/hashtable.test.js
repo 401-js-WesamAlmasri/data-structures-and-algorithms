@@ -87,4 +87,40 @@ describe('Hash Table', () => {
     expect(receivedValue1).toBe(value1);
     expect(receivedValue2).toBe(value2);
   });
+
+  it('should throw error if the value exists already in the table', () => {
+    // Arrange
+    const hTable = new Hashtable(TABLE_SIZE);
+    const key1 = 'wes';
+    const value1 = 'val1';
+    hTable.add(key1, value1);
+    // Act
+    const testFn = () => hTable.add(key2, value2);
+    // Assert
+    expect(testFn).toThrow();
+  });
+
+  it('should return false if the value not exists in the table', () => {
+    // Arrange
+    const hTable = new Hashtable(TABLE_SIZE);
+    const key1 = 'wes';
+    const value1 = 'val1';
+    hTable.add(key1, value1);
+    // Act
+    const result = hTable.contains('newVal');
+    // Assert
+    expect(result).toBe(false);
+  });
+
+  it('should return true if the value exists in the table', () => {
+    // Arrange
+    const hTable = new Hashtable(TABLE_SIZE);
+    const key1 = 'wes';
+    const value1 = 'val1';
+    hTable.add(key1, value1);
+    // Act
+    const result = hTable.contains(key1);
+    // Assert
+    expect(result).toBe(true);
+  });
 });
