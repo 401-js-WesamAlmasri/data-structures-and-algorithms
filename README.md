@@ -28,3 +28,4 @@
 | 20  | [Hash Map Repeated Word](./hashMapRepeatedWord/README.md)        |
 | 21  | [Hashmap Tree Intersection](./hashmapTreeIntersection/README.md) |
 | 22  | [Hashmap Left Join](./hashmapLeftJoin/README.md)                 |
+| 23  | [Graphs](./Data-Structures/graph/README.md)                      |
