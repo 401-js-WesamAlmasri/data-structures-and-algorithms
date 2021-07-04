@@ -167,4 +167,42 @@ describe('Graph Class', () => {
     // Assert
     expect(size).toBe(3);
   });
+
+  it('should get an array of all vertices in the graph traversed in breadth first successfully', () => {
+    // Arrange
+    const graph = new Graph();
+    const value1 = 'pandora';
+    const value2 = 'arendella';
+    const value3 = 'metrovelle';
+    const value4 = 'monstropolis';
+    const value5 = 'narnia';
+    const value6 = 'naboo';
+    const vertex1 = graph.addVertex(value1);
+    const vertex2 = graph.addVertex(value2);
+    const vertex3 = graph.addVertex(value3);
+    const vertex4 = graph.addVertex(value4);
+    const vertex5 = graph.addVertex(value5);
+    const vertex6 = graph.addVertex(value6);
+    // add edges
+    graph.addDirectedEdge(vertex1, vertex2, 1);
+    graph.addDirectedEdge(vertex2, vertex3, 1);
+    graph.addDirectedEdge(vertex2, vertex4, 1);
+    graph.addDirectedEdge(vertex3, vertex4, 1);
+    graph.addDirectedEdge(vertex3, vertex5, 1);
+    graph.addDirectedEdge(vertex3, vertex6, 1);
+    graph.addDirectedEdge(vertex5, vertex6, 1);
+    graph.addDirectedEdge(vertex4, vertex6, 1);
+
+    //         1 ----> 2 ---> 4 -------
+    //                 |      |       |
+    //                 -----> 3 ----> 6
+    //                        |       |
+    //                        5 -------
+
+    // Act
+    const result = graph.BreadthFirst(vertex1);
+    // Assert
+    expect(result.length).toBe(6);
+    expect(result).toEqual([vertex1, vertex2, vertex3, vertex4, vertex5, vertex6]);
+  });
 });

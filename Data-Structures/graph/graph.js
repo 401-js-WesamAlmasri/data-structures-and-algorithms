@@ -1,5 +1,7 @@
 'use strict';
 
+const { Queue } = require('../stacksAndQueues/stacks-and-queues');
+
 class Vertex {
   constructor(value) {
     this.value = value;
@@ -58,6 +60,25 @@ class Graph {
 
   isVertexExists(vertex) {
     return this.adjacencyList.has(vertex);
+  }
+
+  BreadthFirst(node) {
+    const visited = [];
+    const queue = new Queue();
+    queue.enqueue(node);
+    visited.push(node);
+    // loop until traverse all the graph
+    while (!queue.isEmpty()) {
+      const tail = queue.dequeue();
+      const children = this.adjacencyList.get(tail);
+      for (let child of children) {
+        if (!visited.includes(child.vertex)) {
+          visited.push(child.vertex);
+          queue.enqueue(child.vertex);
+        }
+      }
+    }
+    return visited;
   }
 }
 
