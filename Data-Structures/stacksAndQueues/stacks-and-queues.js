@@ -68,7 +68,7 @@ class Queue {
         this.rear = newNode;
     }
 
-    dequeue(value){
+    dequeue(){
         if(this.isEmpty()){
             throw new Error('Empty Queue!')
         }
